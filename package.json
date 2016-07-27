@@ -1,0 +1,26 @@
+{
+  "name": "ethdeploy-provider-http",
+  "version": "0.1.0",
+  "description": "The standard Ethereum web3 HTTP provider for ethdeploy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/silentcicero/ethdeploy-http-provider.git"
+  },
+  "keywords": [
+    "ethdeploy",
+    "http",
+    "provider",
+    "ethereum",
+    "web3"
+  ],
+  "author": "= <=>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silentcicero/ethdeploy-http-provider/issues"
+  },
+  "homepage": "https://github.com/silentcicero/ethdeploy-http-provider#readme"
+}

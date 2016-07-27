@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/silentcicero/ethdeploy-http-provider/issues"
   },
-  "homepage": "https://github.com/silentcicero/ethdeploy-http-provider#readme"
+  "homepage": "https://github.com/silentcicero/ethdeploy-http-provider#readme",
+  "dependencies": {
+    "web3": "^0.17.0-alpha"
+  }
 }

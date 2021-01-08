@@ -1,11 +1,11 @@
-## ethdeploy-provider-http
+## vapdeploy-provider-http
 
-The standard web3 HTTP provider for the [ethdeploy](http://github.com/silentcicero/ethdeploy) Ethereum smart-contract deployment system.
+The standard web3 HTTP provider for the [vapdeploy](http://github.com/silentcicero/vapdeploy) Vapory smart-contract deployment system.
 
 ## Install
 
 ```
-npm install --save ethdeploy-provider-http
+npm install --save vapdeploy-provider-http
 ```
 
 ## Licence

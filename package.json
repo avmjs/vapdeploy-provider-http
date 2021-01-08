@@ -1,29 +1,29 @@
 {
-  "name": "ethdeploy-provider-http",
+  "name": "vapdeploy-provider-http",
   "version": "0.1.1",
-  "description": "The standard Ethereum web3 HTTP provider for ethdeploy.",
+  "description": "The standard Vapory web3 HTTP provider for vapdeploy.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "browserify": "node ./node_modules/browserify/bin/cmd.js --s ethdeployProviderHTTP ./index.js > ./dist/ethdeploy-provider-http.js"
+    "browserify": "node ./node_modules/browserify/bin/cmd.js --s vapdeployProviderHTTP ./index.js > ./dist/vapdeploy-provider-http.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/silentcicero/ethdeploy-http-provider.git"
+    "url": "git+ssh://git@github.com/silentcicero/vapdeploy-http-provider.git"
   },
   "keywords": [
-    "ethdeploy",
+    "vapdeploy",
     "http",
     "provider",
-    "ethereum",
+    "vapory",
     "web3"
   ],
   "author": "= <=>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/silentcicero/ethdeploy-http-provider/issues"
+    "url": "https://github.com/vapjs/vapdeploy-http-provider/issues"
   },
-  "homepage": "https://github.com/silentcicero/ethdeploy-http-provider#readme",
+  "homepage": "https://github.com/vapjs/vapdeploy-http-provider#readme",
   "dependencies": {
     "web3": "^0.17.0-alpha"
   },

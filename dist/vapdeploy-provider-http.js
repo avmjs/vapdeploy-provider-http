@@ -1,9 +1,9 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.ethdeployProviderHTTP = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.vapdeployProviderHTTP = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // require web3
 const Web3ProviderInstance = require('web3');
 
-// ethdeploy HTTP provider
-const ethdeployHTTPProvider = function(providerObject) {
+// vapdeploy HTTP provider
+const vapdeployHTTPProvider = function(providerObject) {
   // setup http provider instance
   const web3Provider = new Web3ProviderInstance.providers.HttpProvider(`${providerObject.host}:${providerObject.port}`);
 
@@ -11,7 +11,7 @@ const ethdeployHTTPProvider = function(providerObject) {
   return web3Provider;
 };
 
-module.exports = ethdeployHTTPProvider;
+module.exports = vapdeployHTTPProvider;
 
 },{"web3":172}],2:[function(require,module,exports){
 var asn1 = exports;
@@ -24069,7 +24069,7 @@ module.exports={
         "spec": ">=6.0.0 <7.0.0",
         "type": "range"
       },
-      "/home/nick/github/ethdeploy-provider-http/node_modules/browserify-sign"
+      "/home/nick/github/vapdeploy-provider-http/node_modules/browserify-sign"
     ]
   ],
   "_from": "elliptic@>=6.0.0 <7.0.0",
@@ -24105,7 +24105,7 @@ module.exports={
   "_shasum": "e4c81e0829cf0a65ab70e998b8232723b5c1bc48",
   "_shrinkwrap": null,
   "_spec": "elliptic@^6.0.0",
-  "_where": "/home/nick/github/ethdeploy-provider-http/node_modules/browserify-sign",
+  "_where": "/home/nick/github/vapdeploy-provider-http/node_modules/browserify-sign",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -31496,7 +31496,7 @@ var SolidityParam = require('./param');
  * @returns {SolidityParam}
  */
 var formatInputInt = function (value) {
-    BigNumber.config(c.ETH_BIGNUMBER_ROUNDING_MODE);
+    BigNumber.config(c.VAP_BIGNUMBER_ROUNDING_MODE);
     var result = utils.padLeft(utils.toTwosComplement(value).round().toString(16), 64);
     return new SolidityParam(result);
 };
@@ -32337,45 +32337,45 @@ if (typeof XMLHttpRequest === 'undefined') {
  */
 
 
-/// required to define ETH_BIGNUMBER_ROUNDING_MODE
+/// required to define VAP_BIGNUMBER_ROUNDING_MODE
 var BigNumber = require('bignumber.js');
 
-var ETH_UNITS = [
+var VAP_UNITS = [
     'wei',
     'kwei',
     'Mwei',
     'Gwei',
     'szabo',
     'finney',
-    'femtoether',
-    'picoether',
-    'nanoether',
-    'microether',
-    'milliether',
+    'femtovapor',
+    'picovapor',
+    'nanovapor',
+    'microvapor',
+    'millivapor',
     'nano',
     'micro',
     'milli',
-    'ether',
+    'vapor',
     'grand',
-    'Mether',
-    'Gether',
-    'Tether',
-    'Pether',
-    'Eether',
-    'Zether',
-    'Yether',
-    'Nether',
-    'Dether',
-    'Vether',
-    'Uether'
+    'Mvapor',
+    'Gvapor',
+    'Tvapor',
+    'Pvapor',
+    'Evapor',
+    'Zvapor',
+    'Yvapor',
+    'Nvapor',
+    'Dvapor',
+    'Vvapor',
+    'Uvapor'
 ];
 
 module.exports = {
-    ETH_PADDING: 32,
-    ETH_SIGNATURE_LENGTH: 4,
-    ETH_UNITS: ETH_UNITS,
-    ETH_BIGNUMBER_ROUNDING_MODE: { ROUNDING_MODE: BigNumber.ROUND_DOWN },
-    ETH_POLLING_TIMEOUT: 1000/2,
+    VAP_PADDING: 32,
+    VAP_SIGNATURE_LENGTH: 4,
+    VAP_UNITS: VAP_UNITS,
+    VAP_BIGNUMBER_ROUNDING_MODE: { ROUNDING_MODE: BigNumber.ROUND_DOWN },
+    VAP_POLLING_TIMEOUT: 1000/2,
     defaultBlock: 'latest',
     defaultAccount: undefined
 };
@@ -32463,33 +32463,33 @@ var sha3 = require('./sha3.js');
 var utf8 = require('utf8');
 
 var unitMap = {
-    'noether':      '0',    
+    'novapor':      '0',    
     'wei':          '1',
     'kwei':         '1000',
     'Kwei':         '1000',
     'babbage':      '1000',
-    'femtoether':   '1000',
+    'femtovapor':   '1000',
     'mwei':         '1000000',
     'Mwei':         '1000000',
     'lovelace':     '1000000',
-    'picoether':    '1000000',
+    'picovapor':    '1000000',
     'gwei':         '1000000000',
     'Gwei':         '1000000000',
     'shannon':      '1000000000',
-    'nanoether':    '1000000000',
+    'nanovapor':    '1000000000',
     'nano':         '1000000000',
     'szabo':        '1000000000000',
-    'microether':   '1000000000000',
+    'microvapor':   '1000000000000',
     'micro':        '1000000000000',
     'finney':       '1000000000000000',
-    'milliether':    '1000000000000000',
+    'millivapor':    '1000000000000000',
     'milli':         '1000000000000000',
-    'ether':        '1000000000000000000',
-    'kether':       '1000000000000000000000',
+    'vapor':        '1000000000000000000',
+    'kvapor':       '1000000000000000000000',
     'grand':        '1000000000000000000000',
-    'mether':       '1000000000000000000000000',
-    'gether':       '1000000000000000000000000000',
-    'tether':       '1000000000000000000000000000000'
+    'mvapor':       '1000000000000000000000000',
+    'gvapor':       '1000000000000000000000000000',
+    'tvapor':       '1000000000000000000000000000000'
 };
 
 /**
@@ -32703,12 +32703,12 @@ var toHex = function (val) {
  * Returns value of unit in Wei
  *
  * @method getValueOfUnit
- * @param {String} unit the unit to convert to, default ether
+ * @param {String} unit the unit to convert to, default vapor
  * @returns {BigNumber} value of the unit (in Wei)
  * @throws error if the unit is not correct:w
  */
 var getValueOfUnit = function (unit) {
-    unit = unit ? unit.toLowerCase() : 'ether';
+    unit = unit ? unit.toLowerCase() : 'vapor';
     var unitValue = unitMap[unit];
     if (unitValue === undefined) {
         throw new Error('This unit doesn\'t exists, please use the one of the following units' + JSON.stringify(unitMap, null, 2));
@@ -32717,24 +32717,24 @@ var getValueOfUnit = function (unit) {
 };
 
 /**
- * Takes a number of wei and converts it to any other ether unit.
+ * Takes a number of wei and converts it to any other vapor unit.
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwei       femtoether     babbage
- * - mwei       picoether      lovelace
- * - gwei       nanoether      shannon      nano
- * - --         microether     szabo        micro
- * - --         milliether     finney       milli
- * - ether      --             --
- * - kether                    --           grand
- * - mether
- * - gether
- * - tether
+ * - kwei       femtovapor     babbage
+ * - mwei       picovapor      lovelace
+ * - gwei       nanovapor      shannon      nano
+ * - --         microvapor     szabo        micro
+ * - --         millivapor     finney       milli
+ * - vapor      --             --
+ * - kvapor                    --           grand
+ * - mvapor
+ * - gvapor
+ * - tvapor
  *
  * @method fromWei
  * @param {Number|String} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert to, default ether
+ * @param {String} unit the unit to convert to, default vapor
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
 var fromWei = function(number, unit) {
@@ -32748,21 +32748,21 @@ var fromWei = function(number, unit) {
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwei       femtoether     babbage
- * - mwei       picoether      lovelace
- * - gwei       nanoether      shannon      nano
- * - --         microether     szabo        micro
- * - --         microether     szabo        micro
- * - --         milliether     finney       milli
- * - ether      --             --
- * - kether                    --           grand
- * - mether
- * - gether
- * - tether
+ * - kwei       femtovapor     babbage
+ * - mwei       picovapor      lovelace
+ * - gwei       nanovapor      shannon      nano
+ * - --         microvapor     szabo        micro
+ * - --         microvapor     szabo        micro
+ * - --         millivapor     finney       milli
+ * - vapor      --             --
+ * - kvapor                    --           grand
+ * - mvapor
+ * - gvapor
+ * - tvapor
  *
  * @method toWei
  * @param {Number|String|BigNumber} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert from, default ether
+ * @param {String} unit the unit to convert from, default vapor
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
 var toWei = function(number, unit) {
@@ -33055,7 +33055,7 @@ module.exports={
 
 var RequestManager = require('./web3/requestmanager');
 var Iban = require('./web3/iban');
-var Eth = require('./web3/methods/eth');
+var Vap = require('./web3/methods/vap');
 var DB = require('./web3/methods/db');
 var Shh = require('./web3/methods/shh');
 var Net = require('./web3/methods/net');
@@ -33076,7 +33076,7 @@ var BigNumber = require('bignumber.js');
 function Web3 (provider) {
     this._requestManager = new RequestManager(provider);
     this.currentProvider = provider;
-    this.eth = new Eth(this);
+    this.vap = new Vap(this);
     this.db = new DB(this);
     this.shh = new Shh(this);
     this.net = new Net(this);
@@ -33152,8 +33152,8 @@ var properties = function () {
             inputFormatter: utils.toDecimal
         }),
         new Property({
-            name: 'version.ethereum',
-            getter: 'eth_protocolVersion',
+            name: 'version.vapory',
+            getter: 'vap_protocolVersion',
             inputFormatter: utils.toDecimal
         }),
         new Property({
@@ -33175,7 +33175,7 @@ Web3.prototype.createBatch = function () {
 module.exports = Web3;
 
 
-},{"./utils/sha3":191,"./utils/utils":192,"./version.json":193,"./web3/batch":196,"./web3/extend":200,"./web3/httpprovider":204,"./web3/iban":205,"./web3/ipcprovider":206,"./web3/methods/db":209,"./web3/methods/eth":210,"./web3/methods/net":211,"./web3/methods/personal":212,"./web3/methods/shh":213,"./web3/property":216,"./web3/requestmanager":217,"./web3/settings":218,"bignumber.js":17}],195:[function(require,module,exports){
+},{"./utils/sha3":191,"./utils/utils":192,"./version.json":193,"./web3/batch":196,"./web3/extend":200,"./web3/httpprovider":204,"./web3/iban":205,"./web3/ipcprovider":206,"./web3/methods/db":209,"./web3/methods/vap":210,"./web3/methods/net":211,"./web3/methods/personal":212,"./web3/methods/shh":213,"./web3/property":216,"./web3/requestmanager":217,"./web3/settings":218,"bignumber.js":17}],195:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -33254,7 +33254,7 @@ AllSolidityEvents.prototype.execute = function (options, callback) {
 
     var o = this.encode(options);
     var formatter = this.decode.bind(this);
-    return new Filter(this._requestManager, o, watches.eth(), formatter, callback);
+    return new Filter(this._requestManager, o, watches.vap(), formatter, callback);
 };
 
 AllSolidityEvents.prototype.attachToContract = function (contract) {
@@ -33392,7 +33392,7 @@ var addFunctionsToContract = function (contract) {
     contract.abi.filter(function (json) {
         return json.type === 'function';
     }).map(function (json) {
-        return new SolidityFunction(contract._eth, json, contract.address);
+        return new SolidityFunction(contract._vap, json, contract.address);
     }).forEach(function (f) {
         f.attachToContract(contract);
     });
@@ -33410,11 +33410,11 @@ var addEventsToContract = function (contract) {
         return json.type === 'event';
     });
 
-    var All = new AllEvents(contract._eth._requestManager, events, contract.address);
+    var All = new AllEvents(contract._vap._requestManager, events, contract.address);
     All.attachToContract(contract);
 
     events.map(function (json) {
-        return new SolidityEvent(contract._eth._requestManager, json, contract.address);
+        return new SolidityEvent(contract._vap._requestManager, json, contract.address);
     }).forEach(function (e) {
         e.attachToContract(contract);
     });
@@ -33434,7 +33434,7 @@ var checkForContractAddress = function(contract, callback){
         callbackFired = false;
 
     // wait for receipt
-    var filter = contract._eth.filter('latest', function(e){
+    var filter = contract._vap.filter('latest', function(e){
         if (!e && !callbackFired) {
             count++;
 
@@ -33452,10 +33452,10 @@ var checkForContractAddress = function(contract, callback){
 
             } else {
 
-                contract._eth.getTransactionReceipt(contract.transactionHash, function(e, receipt){
+                contract._vap.getTransactionReceipt(contract.transactionHash, function(e, receipt){
                     if(receipt && !callbackFired) {
 
-                        contract._eth.getCode(receipt.contractAddress, function(e, code){
+                        contract._vap.getCode(receipt.contractAddress, function(e, code){
                             /*jshint maxcomplexity: 6 */
 
                             if(callbackFired || !code)
@@ -33498,8 +33498,8 @@ var checkForContractAddress = function(contract, callback){
  * @method ContractFactory
  * @param {Array} abi
  */
-var ContractFactory = function (eth, abi) {
-    this.eth = eth;
+var ContractFactory = function (vap, abi) {
+    this.vap = vap;
     this.abi = abi;
 
     /**
@@ -33513,7 +33513,7 @@ var ContractFactory = function (eth, abi) {
      * @returns {Contract} returns contract instance
      */
     this.new = function () {
-        var contract = new Contract(this.eth, this.abi);
+        var contract = new Contract(this.vap, this.abi);
 
         // parse arguments
         var options = {}; // required!
@@ -33535,7 +33535,7 @@ var ContractFactory = function (eth, abi) {
         if (callback) {
 
             // wait for the contract address adn check if the code was deployed
-            this.eth.sendTransaction(options, function (err, hash) {
+            this.vap.sendTransaction(options, function (err, hash) {
                 if (err) {
                     callback(err);
                 } else {
@@ -33549,7 +33549,7 @@ var ContractFactory = function (eth, abi) {
                 }
             });
         } else {
-            var hash = this.eth.sendTransaction(options);
+            var hash = this.vap.sendTransaction(options);
             // add the transaction hash
             contract.transactionHash = hash;
             checkForContractAddress(contract);
@@ -33584,7 +33584,7 @@ var ContractFactory = function (eth, abi) {
  * otherwise calls callback function (err, contract)
  */
 ContractFactory.prototype.at = function (address, callback) {
-    var contract = new Contract(this.eth, this.abi, address);
+    var contract = new Contract(this.vap, this.abi, address);
 
     // this functions are not part of prototype,
     // because we dont want to spoil the interface
@@ -33624,8 +33624,8 @@ ContractFactory.prototype.getData = function () {
  * @param {Array} abi
  * @param {Address} contract address
  */
-var Contract = function (eth, abi, address) {
-    this._eth = eth;
+var Contract = function (vap, abi, address) {
+    this._vap = vap;
     this.transactionHash = null;
     this.address = address;
     this.abi = abi;
@@ -33862,7 +33862,7 @@ SolidityEvent.prototype.execute = function (indexed, options, callback) {
     
     var o = this.encode(indexed, options);
     var formatter = this.decode.bind(this);
-    return new Filter(this._requestManager, o, watches.eth(), formatter, callback);
+    return new Filter(this._requestManager, o, watches.vap(), formatter, callback);
 };
 
 /**
@@ -34505,8 +34505,8 @@ var sha3 = require('../utils/sha3');
 /**
  * This prototype should be used to call/sendTransaction to solidity functions
  */
-var SolidityFunction = function (eth, json, address) {
-    this._eth = eth;
+var SolidityFunction = function (vap, json, address) {
+    this._vap = vap;
     this._inputTypes = json.inputs.map(function (i) {
         return i.type;
     });
@@ -34586,12 +34586,12 @@ SolidityFunction.prototype.call = function () {
 
 
     if (!callback) {
-        var output = this._eth.call(payload, defaultBlock);
+        var output = this._vap.call(payload, defaultBlock);
         return this.unpackOutput(output);
     } 
         
     var self = this;
-    this._eth.call(payload, defaultBlock, function (error, output) {
+    this._vap.call(payload, defaultBlock, function (error, output) {
         callback(error, self.unpackOutput(output));
     });
 };
@@ -34607,10 +34607,10 @@ SolidityFunction.prototype.sendTransaction = function () {
     var payload = this.toPayload(args);
 
     if (!callback) {
-        return this._eth.sendTransaction(payload);
+        return this._vap.sendTransaction(payload);
     }
 
-    this._eth.sendTransaction(payload, callback);
+    this._vap.sendTransaction(payload, callback);
 };
 
 /**
@@ -34624,10 +34624,10 @@ SolidityFunction.prototype.estimateGas = function () {
     var payload = this.toPayload(args);
 
     if (!callback) {
-        return this._eth.estimateGas(payload);
+        return this._vap.estimateGas(payload);
     }
 
-    this._eth.estimateGas(payload, callback);
+    this._vap.estimateGas(payload, callback);
 };
 
 /**
@@ -34676,7 +34676,7 @@ SolidityFunction.prototype.request = function () {
     var format = this.unpackOutput.bind(this);
     
     return {
-        method: this._constant ? 'eth_call' : 'eth_sendTransaction',
+        method: this._constant ? 'vap_call' : 'vap_sendTransaction',
         callback: callback,
         params: [payload], 
         format: format
@@ -34955,7 +34955,7 @@ var Iban = function (iban) {
 };
 
 /**
- * This method should be used to create iban object from ethereum address
+ * This method should be used to create iban object from vapory address
  *
  * @method fromAddress
  * @param {String} address
@@ -34994,7 +34994,7 @@ Iban.fromBban = function (bban) {
  * @return {Iban} the IBAN object
  */
 Iban.createIndirect = function (options) {
-    return Iban.fromBban('ETH' + options.institution + options.identifier);
+    return Iban.fromBban('VAP' + options.institution + options.identifier);
 };
 
 /**
@@ -35016,7 +35016,7 @@ Iban.isValid = function (iban) {
  * @returns {Boolean} true if it is, otherwise false
  */
 Iban.prototype.isValid = function () {
-    return /^XE[0-9]{2}(ETH[0-9A-Z]{13}|[0-9A-Z]{30,31})$/.test(this._iban) &&
+    return /^XE[0-9]{2}(VAP[0-9A-Z]{13}|[0-9A-Z]{30,31})$/.test(this._iban) &&
         mod9710(iso13616Prepare(this._iban)) === 1;
 };
 
@@ -35645,7 +35645,7 @@ module.exports = DB;
     along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /**
- * @file eth.js
+ * @file vap.js
  * @author Marek Kotewicz <marek@ethdev.com>
  * @author Fabian Vogelsteller <fabian@ethdev.com>
  * @date 2015
@@ -35667,26 +35667,26 @@ var Iban = require('../iban');
 var transfer = require('../transfer');
 
 var blockCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? "eth_getBlockByHash" : "eth_getBlockByNumber";
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? "vap_getBlockByHash" : "vap_getBlockByNumber";
 };
 
 var transactionFromBlockCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getTransactionByBlockHashAndIndex' : 'eth_getTransactionByBlockNumberAndIndex';
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'vap_getTransactionByBlockHashAndIndex' : 'vap_getTransactionByBlockNumberAndIndex';
 };
 
 var uncleCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getUncleByBlockHashAndIndex' : 'eth_getUncleByBlockNumberAndIndex';
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'vap_getUncleByBlockHashAndIndex' : 'vap_getUncleByBlockNumberAndIndex';
 };
 
 var getBlockTransactionCountCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getBlockTransactionCountByHash' : 'eth_getBlockTransactionCountByNumber';
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'vap_getBlockTransactionCountByHash' : 'vap_getBlockTransactionCountByNumber';
 };
 
 var uncleCountCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getUncleCountByBlockHash' : 'eth_getUncleCountByBlockNumber';
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'vap_getUncleCountByBlockHash' : 'vap_getUncleCountByBlockNumber';
 };
 
-function Eth(web3) {
+function Vap(web3) {
     this._requestManager = web3._requestManager;
 
     var self = this;
@@ -35706,7 +35706,7 @@ function Eth(web3) {
     this.sendIBANTransaction = transfer.bind(null, this);
 }
 
-Object.defineProperty(Eth.prototype, 'defaultBlock', {
+Object.defineProperty(Vap.prototype, 'defaultBlock', {
     get: function () {
         return c.defaultBlock;
     },
@@ -35716,7 +35716,7 @@ Object.defineProperty(Eth.prototype, 'defaultBlock', {
     }
 });
 
-Object.defineProperty(Eth.prototype, 'defaultAccount', {
+Object.defineProperty(Vap.prototype, 'defaultAccount', {
     get: function () {
         return c.defaultAccount;
     },
@@ -35729,7 +35729,7 @@ Object.defineProperty(Eth.prototype, 'defaultAccount', {
 var methods = function () {
     var getBalance = new Method({
         name: 'getBalance',
-        call: 'eth_getBalance',
+        call: 'vap_getBalance',
         params: 2,
         inputFormatter: [formatters.inputAddressFormatter, formatters.inputDefaultBlockNumberFormatter],
         outputFormatter: formatters.outputBigNumberFormatter
@@ -35737,14 +35737,14 @@ var methods = function () {
 
     var getStorageAt = new Method({
         name: 'getStorageAt',
-        call: 'eth_getStorageAt',
+        call: 'vap_getStorageAt',
         params: 3,
         inputFormatter: [null, utils.toHex, formatters.inputDefaultBlockNumberFormatter]
     });
 
     var getCode = new Method({
         name: 'getCode',
-        call: 'eth_getCode',
+        call: 'vap_getCode',
         params: 2,
         inputFormatter: [formatters.inputAddressFormatter, formatters.inputDefaultBlockNumberFormatter]
     });
@@ -35768,7 +35768,7 @@ var methods = function () {
 
     var getCompilers = new Method({
         name: 'getCompilers',
-        call: 'eth_getCompilers',
+        call: 'vap_getCompilers',
         params: 0
     });
 
@@ -35790,7 +35790,7 @@ var methods = function () {
 
     var getTransaction = new Method({
         name: 'getTransaction',
-        call: 'eth_getTransactionByHash',
+        call: 'vap_getTransactionByHash',
         params: 1,
         outputFormatter: formatters.outputTransactionFormatter
     });
@@ -35805,14 +35805,14 @@ var methods = function () {
 
     var getTransactionReceipt = new Method({
         name: 'getTransactionReceipt',
-        call: 'eth_getTransactionReceipt',
+        call: 'vap_getTransactionReceipt',
         params: 1,
         outputFormatter: formatters.outputTransactionReceiptFormatter
     });
 
     var getTransactionCount = new Method({
         name: 'getTransactionCount',
-        call: 'eth_getTransactionCount',
+        call: 'vap_getTransactionCount',
         params: 2,
         inputFormatter: [null, formatters.inputDefaultBlockNumberFormatter],
         outputFormatter: utils.toDecimal
@@ -35820,35 +35820,35 @@ var methods = function () {
 
     var sendRawTransaction = new Method({
         name: 'sendRawTransaction',
-        call: 'eth_sendRawTransaction',
+        call: 'vap_sendRawTransaction',
         params: 1,
         inputFormatter: [null]
     });
 
     var sendTransaction = new Method({
         name: 'sendTransaction',
-        call: 'eth_sendTransaction',
+        call: 'vap_sendTransaction',
         params: 1,
         inputFormatter: [formatters.inputTransactionFormatter]
     });
 
     var sign = new Method({
         name: 'sign',
-        call: 'eth_sign',
+        call: 'vap_sign',
         params: 2,
         inputFormatter: [formatters.inputAddressFormatter, null]
     });
 
     var call = new Method({
         name: 'call',
-        call: 'eth_call',
+        call: 'vap_call',
         params: 2,
         inputFormatter: [formatters.inputCallFormatter, formatters.inputDefaultBlockNumberFormatter]
     });
 
     var estimateGas = new Method({
         name: 'estimateGas',
-        call: 'eth_estimateGas',
+        call: 'vap_estimateGas',
         params: 1,
         inputFormatter: [formatters.inputCallFormatter],
         outputFormatter: utils.toDecimal
@@ -35856,31 +35856,31 @@ var methods = function () {
 
     var compileSolidity = new Method({
         name: 'compile.solidity',
-        call: 'eth_compileSolidity',
+        call: 'vap_compileSolidity',
         params: 1
     });
 
     var compileLLL = new Method({
         name: 'compile.lll',
-        call: 'eth_compileLLL',
+        call: 'vap_compileLLL',
         params: 1
     });
 
     var compileSerpent = new Method({
         name: 'compile.serpent',
-        call: 'eth_compileSerpent',
+        call: 'vap_compileSerpent',
         params: 1
     });
 
     var submitWork = new Method({
         name: 'submitWork',
-        call: 'eth_submitWork',
+        call: 'vap_submitWork',
         params: 3
     });
 
     var getWork = new Method({
         name: 'getWork',
-        call: 'eth_getWork',
+        call: 'vap_getWork',
         params: 0
     });
 
@@ -35915,65 +35915,65 @@ var properties = function () {
     return [
         new Property({
             name: 'coinbase',
-            getter: 'eth_coinbase'
+            getter: 'vap_coinbase'
         }),
         new Property({
             name: 'mining',
-            getter: 'eth_mining'
+            getter: 'vap_mining'
         }),
         new Property({
             name: 'hashrate',
-            getter: 'eth_hashrate',
+            getter: 'vap_hashrate',
             outputFormatter: utils.toDecimal
         }),
         new Property({
             name: 'syncing',
-            getter: 'eth_syncing',
+            getter: 'vap_syncing',
             outputFormatter: formatters.outputSyncingFormatter
         }),
         new Property({
             name: 'gasPrice',
-            getter: 'eth_gasPrice',
+            getter: 'vap_gasPrice',
             outputFormatter: formatters.outputBigNumberFormatter
         }),
         new Property({
             name: 'accounts',
-            getter: 'eth_accounts'
+            getter: 'vap_accounts'
         }),
         new Property({
             name: 'blockNumber',
-            getter: 'eth_blockNumber',
+            getter: 'vap_blockNumber',
             outputFormatter: utils.toDecimal
         }),
         new Property({
             name: 'protocolVersion',
-            getter: 'eth_protocolVersion'
+            getter: 'vap_protocolVersion'
         })
     ];
 };
 
-Eth.prototype.contract = function (abi) {
+Vap.prototype.contract = function (abi) {
     var factory = new Contract(this, abi);
     return factory;
 };
 
-Eth.prototype.filter = function (fil, callback) {
-    return new Filter(this._requestManager, fil, watches.eth(), formatters.outputLogFormatter, callback);
+Vap.prototype.filter = function (fil, callback) {
+    return new Filter(this._requestManager, fil, watches.vap(), formatters.outputLogFormatter, callback);
 };
 
-Eth.prototype.namereg = function () {
+Vap.prototype.namereg = function () {
     return this.contract(namereg.global.abi).at(namereg.global.address);
 };
 
-Eth.prototype.icapNamereg = function () {
+Vap.prototype.icapNamereg = function () {
     return this.contract(namereg.icap.abi).at(namereg.icap.address);
 };
 
-Eth.prototype.isSyncing = function (callback) {
+Vap.prototype.isSyncing = function (callback) {
     return new IsSyncing(this._requestManager, callback);
 };
 
-module.exports = Eth;
+module.exports = Vap;
 
 
 },{"../../utils/config":190,"../../utils/utils":192,"../contract":197,"../filter":201,"../formatters":202,"../iban":205,"../method":208,"../namereg":215,"../property":216,"../syncing":219,"../transfer":220,"./watches":214}],211:[function(require,module,exports){
@@ -35993,7 +35993,7 @@ module.exports = Eth;
     You should have received a copy of the GNU Lesser General Public License
     along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
 */
-/** @file eth.js
+/** @file vap.js
  * @authors:
  *   Marek Kotewicz <marek@ethdev.com>
  * @date 2015
@@ -36013,7 +36013,7 @@ var Net = function (web3) {
     });
 };
 
-/// @returns an array of objects describing web3.eth api properties
+/// @returns an array of objects describing web3.vap api properties
 var properties = function () {
     return [
         new Property({
@@ -36048,7 +36048,7 @@ module.exports = Net;
     along with web3.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /**
- * @file eth.js
+ * @file vap.js
  * @author Marek Kotewicz <marek@ethdev.com>
  * @author Fabian Vogelsteller <fabian@ethdev.com>
  * @date 2015
@@ -36238,8 +36238,8 @@ module.exports = Shh;
 
 var Method = require('../method');
 
-/// @returns an array of objects describing web3.eth.filter api methods
-var eth = function () {
+/// @returns an array of objects describing web3.vap.filter api methods
+var vap = function () {
     var newFilterCall = function (args) {
         var type = args[0];
 
@@ -36247,13 +36247,13 @@ var eth = function () {
             case 'latest':
                 args.shift();
                 this.params = 0;
-                return 'eth_newBlockFilter';
+                return 'vap_newBlockFilter';
             case 'pending':
                 args.shift();
                 this.params = 0;
-                return 'eth_newPendingTransactionFilter';
+                return 'vap_newPendingTransactionFilter';
             default:
-                return 'eth_newFilter';
+                return 'vap_newFilter';
         }
     };
 
@@ -36265,19 +36265,19 @@ var eth = function () {
 
     var uninstallFilter = new Method({
         name: 'uninstallFilter',
-        call: 'eth_uninstallFilter',
+        call: 'vap_uninstallFilter',
         params: 1
     });
 
     var getLogs = new Method({
         name: 'getLogs',
-        call: 'eth_getFilterLogs',
+        call: 'vap_getFilterLogs',
         params: 1
     });
 
     var poll = new Method({
         name: 'poll',
-        call: 'eth_getFilterChanges',
+        call: 'vap_getFilterChanges',
         params: 1
     });
 
@@ -36324,7 +36324,7 @@ var shh = function () {
 };
 
 module.exports = {
-    eth: eth,
+    vap: vap,
     shh: shh
 };
 
@@ -36550,7 +36550,7 @@ var errors = require('./errors');
 
 /**
  * It's responsible for passing messages to providers
- * It's also responsible for polling the ethereum node for incoming messages
+ * It's also responsible for polling the vapory node for incoming messages
  * Default poll timeout is 1 second
  * Singleton
  */
@@ -36714,7 +36714,7 @@ RequestManager.prototype.reset = function (keepIsSyncing) {
  */
 RequestManager.prototype.poll = function () {
     /*jshint maxcomplexity: 6 */
-    this.timeout = setTimeout(this.poll.bind(this), c.ETH_POLLING_TIMEOUT);
+    this.timeout = setTimeout(this.poll.bind(this), c.VAP_POLLING_TIMEOUT);
 
     if (Object.keys(this.polls).length === 0) {
         return;
@@ -36858,7 +36858,7 @@ var pollSyncing = function(self) {
     };
 
     self.requestManager.startPolling({
-        method: 'eth_syncing',
+        method: 'vap_syncing',
         params: [],
     }, self.pollId, onMessage, self.stopWatching.bind(self));
 
@@ -36924,23 +36924,23 @@ var exchangeAbi = require('../contracts/SmartExchange.json');
  * @param {Value} value to be tranfered
  * @param {Function} callback, callback
  */
-var transfer = function (eth, from, to, value, callback) {
+var transfer = function (vap, from, to, value, callback) {
     var iban = new Iban(to); 
     if (!iban.isValid()) {
         throw new Error('invalid iban address');
     }
 
     if (iban.isDirect()) {
-        return transferToAddress(eth, from, iban.address(), value, callback);
+        return transferToAddress(vap, from, iban.address(), value, callback);
     }
     
     if (!callback) {
-        var address = eth.icapNamereg().addr(iban.institution());
-        return deposit(eth, from, address, value, iban.client());
+        var address = vap.icapNamereg().addr(iban.institution());
+        return deposit(vap, from, address, value, iban.client());
     }
 
-    eth.icapNamereg().addr(iban.institution(), function (err, address) {
-        return deposit(eth, from, address, value, iban.client(), callback);
+    vap.icapNamereg().addr(iban.institution(), function (err, address) {
+        return deposit(vap, from, address, value, iban.client(), callback);
     });
     
 };
@@ -36954,8 +36954,8 @@ var transfer = function (eth, from, to, value, callback) {
  * @param {Value} value to be tranfered
  * @param {Function} callback, callback
  */
-var transferToAddress = function (eth, from, to, value, callback) {
-    return eth.sendTransaction({
+var transferToAddress = function (vap, from, to, value, callback) {
+    return vap.sendTransaction({
         address: to,
         from: from,
         value: value
@@ -36972,9 +36972,9 @@ var transferToAddress = function (eth, from, to, value, callback) {
  * @param {String} client unique identifier
  * @param {Function} callback, callback
  */
-var deposit = function (eth, from, to, value, client, callback) {
+var deposit = function (vap, from, to, value, client, callback) {
     var abi = exchangeAbi;
-    return eth.contract(abi).at(to).deposit(client, {
+    return vap.contract(abi).at(to).deposit(client, {
         from: from,
         value: value
     }, callback);
